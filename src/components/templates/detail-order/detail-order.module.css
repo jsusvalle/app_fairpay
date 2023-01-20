@@ -1,0 +1,35 @@
+.container_title {
+    @apply container mx-auto px-6 pt-4;
+}
+
+.content {
+    @apply flex justify-between items-center;
+}
+
+.title {
+    @apply mt-4 text-4xl font-bold;
+}
+
+.container_state {
+    @apply bg-white my-4 py-8 px-4 flex justify-around text-4xl font-bold rounded-md;
+}
+
+.container_accordion {
+    @apply bg-white mt-4 pt-1 px-4 text-4xl font-bold rounded-md;
+}
+
+.container_circle {
+    @apply relative;
+}
+
+.container_loading {
+    @apply flex h-10 w-10;
+}
+
+.span_spin_loading {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75;
+}
+
+.span_loading {
+    @apply relative inline-flex rounded-full h-10 w-10 bg-yellow-400;
+}
