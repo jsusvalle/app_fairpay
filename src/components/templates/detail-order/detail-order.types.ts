@@ -1,4 +1,4 @@
-import { RouteProp, NavigationProp } from "@react-navigation/native";
+import { RouteProp } from "@react-navigation/native";
 
 type RootParamList = {
   DetailOrder: undefined;
@@ -6,9 +6,7 @@ type RootParamList = {
 };
 
 type OrderIdRouteProp = RouteProp<RootParamList, "OrderId">;
-type OrderIdNavigationProp = NavigationProp<RootParamList, "OrderId">;
 
 export type DetailOrderProps = {
-  navigation?: OrderIdNavigationProp;
   route?: OrderIdRouteProp;
 };
