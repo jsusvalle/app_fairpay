@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Icon } from "components/atoms";
 
-import { StackHome } from "../../../app/views-home";
+import { StackHome } from "app/views-home";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +18,7 @@ export const AppBar: FC = () => {
         component={StackHome}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="home" size={30} color={color} />
+            <Icon type="home" size={30} color={color} />
           ),
           headerShown: false,
         }}
@@ -28,7 +28,7 @@ export const AppBar: FC = () => {
         component={StackHome}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="plus" size={30} color={color} />
+            <Icon type="plus" size={30} color={color} />
           ),
           headerShown: false,
         }}

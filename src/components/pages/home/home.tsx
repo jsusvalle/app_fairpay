@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Mytables } from "../../templates";
+import { Mytables } from "components/templates";
 
 const Home: FC = () => {
   return <Mytables />;

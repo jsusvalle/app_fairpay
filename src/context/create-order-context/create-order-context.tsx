@@ -1,6 +1,6 @@
 import { FC, createContext, useState } from "react";
 
-import { NewOrder } from "../../models";
+import { NewOrder } from "models";
 import {
   CreateOrderProps,
   CreateOrderContextType,
@@ -15,7 +15,7 @@ import {
   createOrderByNroGuest,
   editOrderByCustomer,
   deleteOrderCustomer,
-} from "../../utils";
+} from "utils";
 
 export const CreateOrderContext = createContext<CreateOrderContextType | null>(
   null

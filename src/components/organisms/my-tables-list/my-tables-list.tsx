@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { FlatList } from "react-native";
 
-import { TableButton } from "../../molecules";
+import { TableButton } from "components/molecules";
 
-import { TablesData } from "../../../models";
+import { TablesData } from "models";
 
 export type MyTablesListProps = {
   data?: TablesData[];

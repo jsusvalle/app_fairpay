@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 
-import type { DetailOrderResponse } from "../../../models";
-import { getDetailOrderHandler } from "../../../mock_services";
+import type { DetailOrderResponse } from "models";
+import { getDetailOrderHandler } from "mock_services";
 
 type TQueryFnData = DetailOrderResponse;
 type TError = any;

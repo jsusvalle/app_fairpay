@@ -2,7 +2,7 @@ import { FC, useMemo } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import MaterialIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Icon } from "components/atoms";
 
 import { TablesData } from "models";
 import { classNames } from "utils";
@@ -19,14 +19,14 @@ export const TableButton: FC<TableButtonProps> = ({ data }) => {
       navigation.navigate(
         "Detail Order" as never,
         {
-          tableId: data._id,
+          order_id: data._id,
         } as never
       );
     } else if (data.state === "served") {
       navigation.navigate(
         "Check Order" as never,
         {
-          tableId: data._id,
+          order_id: data._id,
         } as never
       );
     }
@@ -47,10 +47,12 @@ export const TableButton: FC<TableButtonProps> = ({ data }) => {
 
   return (
     <TouchableOpacity onPress={handlePress} className={buttonClassNames}>
-      <Text className="text-5xl font-semibold">{data.nro_table}</Text>
-      <View className="flex flex-row justify-around my-2 text-sm font-bold">
-        <MaterialIcons name="account-group" size={20} />
-        <Text className="ml-2">{data.nro_guest}</Text>
+      <View>
+        <Text className="text-5xl font-semibold">{data.nro_table}</Text>
+        <View className="flex flex-row justify-around my-2 text-sm font-bold">
+          <Icon type="account-group" size={20} />
+          <Text className="ml-2">{data.nro_guest}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );

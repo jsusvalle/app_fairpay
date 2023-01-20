@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 
-import type { OrderCheckResponse } from "../../../models";
-import { getOrderCheckHandler } from "../../../mock_services";
+import type { OrderCheckResponse } from "models";
+import { getOrderCheckHandler } from "mock_services";
 
 type TQueryFnData = OrderCheckResponse;
 type TError = any;

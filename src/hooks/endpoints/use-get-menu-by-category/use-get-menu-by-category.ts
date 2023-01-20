@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 
-import type { MenuResponse } from "../../../models";
-import { getMenuByCategory } from "../../../mock_services";
+import type { MenuResponse } from "models";
+import { getMenuByCategory } from "mock_services";
 
 type TQueryFnData = MenuResponse;
 type TError = any;

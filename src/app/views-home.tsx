@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Home from "../components/pages/home";
+import Home from "components/pages/home";
+import DetailOrder from "components/pages/detail-order";
 
 const HomeStackNavigator = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ export const StackHome = () => {
       />
       <HomeStackNavigator.Screen
         name="Detail Order"
-        component={Home}
+        component={DetailOrder}
         options={{
           headerShown: false,
         }}

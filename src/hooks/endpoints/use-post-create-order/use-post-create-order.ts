@@ -1,7 +1,7 @@
 import { useMutation, UseMutationOptions } from "react-query";
 
-import type { NewOrderRequest } from "../../../models";
-import { postCreateOrderHandler } from "../../../mock_services";
+import type { NewOrderRequest } from "models";
+import { postCreateOrderHandler } from "mock_services";
 
 type TData = NewOrderRequest;
 type TError = any;

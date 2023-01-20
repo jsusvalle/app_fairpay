@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Text, View, SafeAreaView } from "react-native";
 
-import { StateTables } from "../../../models";
+import { StateTables } from "models";
 
 export type MyTablesStateProps = {
   info?: StateTables;

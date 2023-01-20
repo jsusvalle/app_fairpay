@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 
-import type { MyTablesResponse } from "../../../models";
-import { getMyTablesHandler } from "../../../mock_services";
+import type { MyTablesResponse } from "models";
+import { getMyTablesHandler } from "mock_services";
 
 type TQueryFnData = MyTablesResponse;
 type TError = any;

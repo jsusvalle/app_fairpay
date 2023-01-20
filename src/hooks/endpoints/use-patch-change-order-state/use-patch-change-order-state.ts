@@ -1,6 +1,6 @@
 import { useMutation, UseMutationOptions } from "react-query";
 
-import { changeOrderStateHandler } from "../../../mock_services";
+import { changeOrderStateHandler } from "mock_services";
 
 type TData = {};
 type TError = any;

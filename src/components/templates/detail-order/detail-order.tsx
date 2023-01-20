@@ -1,65 +1,61 @@
-import { FC } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { FC } from "react";
+import { View, Text, SafeAreaView, StatusBar } from "react-native";
 
-import { Skeleton, Button } from 'components/atoms';
-import { AccordionItemsDetailOrder } from 'components/organisms';
+import { Button } from "components/atoms";
+import { AccordionItemsDetailOrder } from "components/organisms";
 
-import { useGetDetailOrder, usePatchChangeOrderState } from 'hooks/endpoints';
+import { useGetDetailOrder, usePatchChangeOrderState } from "hooks/endpoints";
 
-import styles from './detail-order.module.css';
+import type { DetailOrderProps } from "./detail-order.types";
 
-export const DetailOrder: FC = () => {
-  const navigate = useNavigate();
-  let { orderId } = useParams();
-  const { data, isLoading } = useGetDetailOrder(orderId ? orderId : '1231');
-  const patchChangeState = usePatchChangeOrderState(orderId ? orderId : '123');
+export const DetailOrder: FC<DetailOrderProps> = ({ route, navigation }) => {
+  const orderId = route?.params.order_id;
 
-  const handleClickChangeState = () => {
-    patchChangeState.mutate(orderId ? orderId : '', {
+  const { data, isLoading } = useGetDetailOrder(orderId || "123");
+  const patchChangeState = usePatchChangeOrderState(orderId);
+
+  const handlePressChangeState = () => {
+    patchChangeState.mutate(orderId || "123", {
       onSuccess: () => {
-        navigate('/');
+        navigation?.goBack();
       },
-      onError: e => {
+      onError: (e) => {
         console.error(e);
       },
     });
   };
 
   return (
-    <div className={styles.container_title}>
-      <button onClick={() => navigate('/')}>
-        <ArrowLeftIcon width={40} />
-      </button>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Table {data?.data.data.table_num}</h1>
-      </div>
+    <SafeAreaView style={{ flex: 1, paddingTop: StatusBar.currentHeight }}>
+      <View className="container mx-auto px-6 mt-4">
+        <Text className="mt-4 text-4xl font-bold">
+          Table {data?.data.table_num}
+        </Text>
 
-      <div className={styles.container_state}>
-        <div className={styles.container_circle}>
-          <span className={styles.container_loading}>
-            <span className={styles.span_spin_loading}></span>
-            <span className={styles.span_loading}></span>
-          </span>
-        </div>
-        <p>Cooking</p>
-      </div>
+        <View className="bg-white my-4 py-8 px-4 flex flex-row justify-around rounded-md">
+          <View className="flex h-10 w-10">
+            <View className="relative inline-flex rounded-full h-10 w-10 bg-yellow-400"></View>
+          </View>
+          <Text className="text-4xl font-bold">Cooking</Text>
+        </View>
 
-      <Skeleton
+        {/* <Skeleton
         isLoading={isLoading}
         items={4}
         boxClasses="flex flex-col mt-4"
-        heightItem="medium">
+        heightItem="medium"> */}
         <AccordionItemsDetailOrder
-          data={data?.data ? data?.data.data.order_details : []}
+          data={data?.data ? data?.data.order_details : []}
         />
-      </Skeleton>
+        {/* </Skeleton> */}
 
-      <Button
-        onClick={handleClickChangeState}
-        isLoading={patchChangeState.isLoading}>
-        Change State Order
-      </Button>
-    </div>
+        <Button
+          handlePress={handlePressChangeState}
+          isLoading={patchChangeState.isLoading}
+        >
+          Change State Order
+        </Button>
+      </View>
+    </SafeAreaView>
   );
 };

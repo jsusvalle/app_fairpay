@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { NewOrder, Customer } from "../../models";
+import { NewOrder, Customer } from "models";
 
 export type viewStepsType = "table-view" | "order-view" | "menu-view";
 

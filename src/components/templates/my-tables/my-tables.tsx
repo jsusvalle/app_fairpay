@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { View } from "react-native";
 
-import { MyTablesState, MyTablesList } from "../../organisms";
+import { MyTablesState, MyTablesList } from "components/organisms";
 
-import { useGetMyTables } from "../../../hooks";
+import { useGetMyTables } from "hooks/endpoints";
 
 export const Mytables: FC = () => {
   const { data } = useGetMyTables();
