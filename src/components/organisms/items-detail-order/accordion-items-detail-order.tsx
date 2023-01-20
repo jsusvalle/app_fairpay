@@ -37,10 +37,7 @@ export const AccordionItemsDetailOrder: FC<AccordionItemsDetailOrderProps> = ({
                 </View>
               </TouchableOpacity>
             </View>
-            <View
-              className={item.name_guest === activeItem ? "" : "hidden"}
-              aria-labelledby="accordion-flush-heading-1"
-            >
+            <View className={item.name_guest === activeItem ? "" : "hidden"}>
               <View className="py-5 border-b">
                 {item.order_customer.map((food) => (
                   <View
