@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "components/pages/home";
 import DetailOrder from "components/pages/detail-order";
+import OrderCheck from "components/pages/order-check";
 
 const HomeStackNavigator = createNativeStackNavigator();
 
@@ -24,7 +25,7 @@ export const StackHome = () => {
       />
       <HomeStackNavigator.Screen
         name="Check Order"
-        component={Home}
+        component={OrderCheck}
         options={{
           headerShown: false,
         }}

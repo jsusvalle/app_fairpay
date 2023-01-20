@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { View, Text, SafeAreaView, StatusBar } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Button } from "components/atoms";
 import { AccordionItemsDetailOrder } from "components/organisms";
@@ -8,16 +9,17 @@ import { useGetDetailOrder, usePatchChangeOrderState } from "hooks/endpoints";
 
 import type { DetailOrderProps } from "./detail-order.types";
 
-export const DetailOrder: FC<DetailOrderProps> = ({ route, navigation }) => {
+export const DetailOrder: FC<DetailOrderProps> = ({ route }) => {
+  const navigation = useNavigation();
   const orderId = route?.params.order_id;
 
-  const { data, isLoading } = useGetDetailOrder(orderId || "123");
+  const { data } = useGetDetailOrder(orderId || "123");
   const patchChangeState = usePatchChangeOrderState(orderId);
 
   const handlePressChangeState = () => {
     patchChangeState.mutate(orderId || "123", {
       onSuccess: () => {
-        navigation?.goBack();
+        navigation.goBack();
       },
       onError: (e) => {
         console.error(e);
@@ -39,15 +41,9 @@ export const DetailOrder: FC<DetailOrderProps> = ({ route, navigation }) => {
           <Text className="text-4xl font-bold">Cooking</Text>
         </View>
 
-        {/* <Skeleton
-        isLoading={isLoading}
-        items={4}
-        boxClasses="flex flex-col mt-4"
-        heightItem="medium"> */}
         <AccordionItemsDetailOrder
           data={data?.data ? data?.data.order_details : []}
         />
-        {/* </Skeleton> */}
 
         <Button
           handlePress={handlePressChangeState}

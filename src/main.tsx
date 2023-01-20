@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { AppBar } from "./components/organisms";
+import { AppBar } from "app/app-bar";
 
 export const MainComponent = () => {
   const queryClient = new QueryClient();
