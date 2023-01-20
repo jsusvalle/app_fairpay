@@ -16,6 +16,8 @@ export type addOrderCustomerType = (customerData: Customer) => void;
 
 export type editOrderCustomerType = (id: string, action: string) => void;
 
+export type resetDataType = () => void;
+
 export type CreateOrderContextType = {
   data: NewOrder;
   view: viewStepsType;
@@ -24,6 +26,7 @@ export type CreateOrderContextType = {
   changeView: changeViewType;
   currentCustomer: string;
   editOrderCustomer: editOrderCustomerType;
+  resetData: resetDataType;
 };
 
 export type CreateOrderProps = {

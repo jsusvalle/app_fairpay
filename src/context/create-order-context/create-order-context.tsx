@@ -21,12 +21,14 @@ export const CreateOrderContext = createContext<CreateOrderContextType | null>(
   null
 );
 
+const initialData = {
+  table_id: "",
+  nro_guest: 0,
+  order: [],
+};
+
 export const CreateOrderProvider: FC<CreateOrderProps> = ({ children }) => {
-  const [data, setData] = useState<NewOrder>({
-    table_id: "",
-    nro_guest: 0,
-    order: [],
-  });
+  const [data, setData] = useState<NewOrder>({ ...initialData });
   const [view, setView] = useState<viewStepsType>("table-view");
   const [currentCustomer, setCurrentCustomer] = useState<string>("");
 
@@ -74,6 +76,13 @@ export const CreateOrderProvider: FC<CreateOrderProps> = ({ children }) => {
     setView("order-view");
   };
 
+  const resetData = () => {
+    setView("table-view");
+    setData({
+      ...initialData,
+    });
+  };
+
   return (
     <CreateOrderContext.Provider
       value={{
@@ -84,6 +93,7 @@ export const CreateOrderProvider: FC<CreateOrderProps> = ({ children }) => {
         changeView,
         currentCustomer,
         editOrderCustomer,
+        resetData,
       }}
     >
       {children}
